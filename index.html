@@ -7,10 +7,38 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="contenedor">
+  <section class="contenedor" id="pantalla-login">
+    <header class="cabecera">
+      <h1>Diario de Estudio</h1>
+      <p class="subtitulo">Inicia sesión para guardar tus sesiones.</p>
+    </header>
+
+    <section class="tarjeta" aria-labelledby="titulo-login">
+      <h2 id="titulo-login">Iniciar sesión</h2>
+
+      <form id="formulario-login" novalidate>
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" name="correo" autocomplete="email" required>
+        </div>
+
+        <div class="campo">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" autocomplete="current-password" required>
+        </div>
+
+        <p class="error" id="error-login" role="alert" hidden></p>
+
+        <button type="submit" id="boton-login">Entrar</button>
+      </form>
+    </section>
+  </section>
+
+  <main class="contenedor" id="app" hidden>
     <header class="cabecera">
       <h1>Diario de Estudio</h1>
       <p class="subtitulo">Registra tus sesiones y no pierdas tu racha.</p>
+      <button type="button" class="boton-salir" id="boton-salir">Cerrar sesión</button>
     </header>
 
     <section class="racha" aria-label="Racha actual" aria-live="polite">
@@ -51,17 +79,19 @@
 
         <p class="error" id="mensaje-error" role="alert" hidden></p>
 
-        <button type="submit">Guardar sesión</button>
+        <button type="submit" id="boton-guardar">Guardar sesión</button>
       </form>
     </section>
 
     <section class="tarjeta" aria-labelledby="titulo-sesiones">
       <h2 id="titulo-sesiones">Sesiones</h2>
+      <p class="estado" id="estado-sesiones" aria-live="polite" hidden>Cargando sesiones...</p>
+      <p class="error" id="error-sesiones" role="alert" hidden></p>
       <ul class="lista-sesiones" id="lista-sesiones"></ul>
       <p class="vacio" id="sin-sesiones">Todavía no has registrado ninguna sesión.</p>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

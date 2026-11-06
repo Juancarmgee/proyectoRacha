@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+/* Evita que clases con display propio (por ejemplo .contenedor) anulen el atributo hidden. */
+[hidden] {
+  display: none !important;
+}
+
 :root {
   --fondo: #f3f1ec;
   --tarjeta: #ffffff;
@@ -47,6 +52,28 @@ body {
   margin: 6px 0 0;
   color: var(--texto-suave);
   font-size: 0.95rem;
+}
+
+/* La pantalla de login se centra mientras la app está oculta. */
+#pantalla-login {
+  min-height: calc(100vh - 80px);
+  justify-content: center;
+}
+
+.boton-salir {
+  width: auto;
+  margin-top: 12px;
+  padding: 7px 14px;
+  border: 1px solid var(--borde);
+  background: transparent;
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.boton-salir:hover {
+  background: #ffffff;
+  color: var(--texto);
 }
 
 .racha {
@@ -158,6 +185,14 @@ body {
   color: var(--error);
   font-size: 0.88rem;
   font-weight: 500;
+}
+
+.estado {
+  margin: 0;
+  padding: 4px 0;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
 }
 
 button {
