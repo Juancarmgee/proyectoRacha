@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <h1>Diario de Estudio</h1>
+      <p class="subtitulo">Registra tus sesiones y no pierdas tu racha.</p>
+    </header>
+
+    <section class="racha" aria-label="Racha actual" aria-live="polite">
+      <p class="racha-etiqueta">Racha actual</p>
+      <p class="racha-valor">
+        <span class="racha-fuego" aria-hidden="true">🔥</span>
+        <span id="racha-numero">0</span>
+      </p>
+      <p class="racha-texto" id="racha-texto">días seguidos</p>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-nueva-sesion">
+      <h2 id="titulo-nueva-sesion">Nueva sesión</h2>
+
+      <form id="formulario-sesion" novalidate>
+        <div class="campo">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="campo">
+          <label for="tema">Tema</label>
+          <input type="text" id="tema" name="tema" placeholder="Ej. Curso de JavaScript" required>
+        </div>
+
+        <div class="campos-dobles">
+          <div class="campo">
+            <label for="inicio">Minuto inicial</label>
+            <input type="number" id="inicio" name="inicio" min="0" step="1" inputmode="numeric" placeholder="0" required>
+          </div>
+          <div class="campo">
+            <label for="fin">Minuto final</label>
+            <input type="number" id="fin" name="fin" min="1" step="1" inputmode="numeric" placeholder="30" required>
+          </div>
+        </div>
+
+        <p class="duracion" aria-live="polite">Duración: <strong id="duracion-valor">—</strong></p>
+
+        <p class="error" id="mensaje-error" role="alert" hidden></p>
+
+        <button type="submit">Guardar sesión</button>
+      </form>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-sesiones">
+      <h2 id="titulo-sesiones">Sesiones</h2>
+      <ul class="lista-sesiones" id="lista-sesiones"></ul>
+      <p class="vacio" id="sin-sesiones">Todavía no has registrado ninguna sesión.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
